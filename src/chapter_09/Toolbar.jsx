@@ -8,7 +8,7 @@ const styles = {
     borderBottom : "1px solid grey",
   },
   greeting : {
-    marginRight: 8,
+    marginLeft: 8,
   },
 };
 
@@ -16,13 +16,14 @@ export default function Toolbar(props){
   const {isLoggedIn, onClickLogin, onClickLogout} = props;
 
   return (
-      <div>
-        {isLoggedIn && <span style={styles.greeting}>환영합니다!</span> }
+      <div style={styles.wrapper}>
         {isLoggedIn ? (
             <button onClick={onClickLogout}>로그아웃</button>
         ) : (
             <button onClick={onClickLogin}>로그인</button>
         )}
+        {isLoggedIn && <span style={styles.greeting}>환영합니다!</span> }
+
       </div>
   );
 }
